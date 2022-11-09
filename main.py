@@ -1,14 +1,11 @@
 import pygame
 from player import Fighter
-from functions import draw_background
 from functions import draw_health_bar
-
+from functions import draw_background
 
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 600
-#YELLOW = (255,255,0)
-RED = (255, 0, 0)
-WHITE = (255,255,255)
+
 FPS = 60
 
 #INITIATION
@@ -33,7 +30,6 @@ while run:
     #DRAW HEALTH BARS
     draw_health_bar(player1.health, screen, 20, 40)
     draw_health_bar(player2.health, screen, 580, 40)
-
     #DISPLAY Fighters
     player1.draw(screen)
     player1.move(SCREEN_WIDTH, SCREEN_HEIGHT, pygame.K_a, pygame.K_d, pygame.K_w, screen, player2)

@@ -2,6 +2,7 @@ import pygame
 
 class Fighter:
     def __init__(self, x, y):
+        self.flip = False
         self.rect = pygame.Rect((x, y, 80, 150)) #x and y are used to place the characters in ground
         self.velocity_y = 0
         self.jump = False
@@ -51,12 +52,19 @@ class Fighter:
             dy = FLOOR - self.rect.bottom
             self.jump = False
 
+        #ENSURE PLAYERS ARE FACING EACH OTHER
+        if target.rect.centerx > self.rect.centerx:
+            self.flip = False
+        else:
+            self.flip = True
+
         #MOVEMENT CONDITIONS
         self.rect.x += dx
         self.rect.y += dy
 
     def attack(self, screen, target):
-        attack_rect = pygame.Rect(self.rect.centerx, self.rect.y, 2 * self.rect.width, self.rect.height)
+        attack_rect = pygame.Rect(self.rect.centerx - (2 * self.rect.width * self.flip), self.rect.y, 2 * self.rect.width, self.rect.height)
+
         #COLLISION
         if attack_rect.colliderect(target.rect):
             self.attacking = True

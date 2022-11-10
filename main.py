@@ -18,11 +18,21 @@ clock = pygame.time.Clock()
 run = True
 
 #FIGHTERS
-player1 = Fighter(200,420)
-player2 = Fighter(700, 420)
+player1 = Fighter(200,420, WARRIOR_ANIMATION_LIST)
+player2 = Fighter(700, 420, WIZARD_ANIMATION_LIST)
 
 
 background = pygame.image.load("graphics/bg.jpg").convert_alpha()
+#load spritesheets
+warrior_sheet = pygame.load.image("graphics\warrior_sprites\warrior.png").convert_alpha()
+wizard_sheet = pygame.load.image("graphics\wizard_sprites\wizard.png").convert_alpha()
+
+
+#step definition
+WARRIOR_ANIMATION_LIST = [10, 8, 1, 7, 7, 3, 7]
+WIZARD_ANIMATION_LIST = [8, 8, 1, 8, 8, 3, 7]
+
+
 while run:
     #DISPLAY Background
     draw_background(screen, background, SCREEN_WIDTH, SCREEN_HEIGHT)

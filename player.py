@@ -17,7 +17,10 @@ class Fighter:
         self.jump = False
         self.attacking = False
         self.attack_type = 0
+        self.attackCooldown = 0
+        self.hit = False
         self.health = 100
+        self.alive = True
 
     def load_images(self, spritesheets, animation_steps):
         SPRITEBOX = self.size * self.imageSCALED
@@ -31,7 +34,7 @@ class Fighter:
             animationList.append(tempImgLIST)
         return animationList
 
-    def move(self, screen_width, screen_height, left_key, right_key, jump, screen, target):
+    def move(self, screen_width, screen_height, left_key, right_key, jump, attack1, attack2, screen, target):
         #VARIABLES FOR MOVEMENT
         SPEED = 8
         GRAVITY = 2
@@ -61,11 +64,11 @@ class Fighter:
                 self.velocity_y = -30
 
             #fighter attacks
-            if key[pygame.K_j] or key[pygame.K_k]:
+            if key[attack1] or key[attack2]:
                 self.attack(screen, target)
-                if key[pygame.K_j]:
+                if key[attack1]:
                     self.attack_type = 1
-                if key[pygame.K_k]:
+                if key[attack2]:
                     self.attack_type = 2
 
         #apply gravity
@@ -88,6 +91,10 @@ class Fighter:
         else:
             self.flip = True
 
+        #apply attack cooldown
+        if self.attackCooldown > 0:
+            self.attackCooldown -= 1
+
         #MOVEMENT CONDITIONS
         self.rect.x += dx
         self.rect.y += dy
@@ -95,7 +102,13 @@ class Fighter:
     #HANDLE ANIMATION UPDATES
     def update(self):
         #check for the action made by the player
-        if self.attacking == True:
+        if self.health <= 0:
+            self.health = 0
+            self.alive = False
+            self.actionUpdate(6)#death
+        elif self.hit == True:
+            self.actionUpdate(5) #hit
+        elif self.attacking == True:
             if self.attack_type == 1:
                 self.actionUpdate(3) #attack type 1
             elif self.attack_type == 2:
@@ -125,14 +138,21 @@ class Fighter:
             #check if the attack is executed once
             if self.action == 3 or self.action == 4:
                 self.attacking = False
+                self.attackCooldown = 20
+            if self.action == 5:
+                self.hit = False
+                self.attacking = False
+                self.attackCooldown = 20
 
     def attack(self, screen, target):
-        self.attacking = True
-        attack_rect = pygame.Rect(self.rect.centerx - (2 * self.rect.width * self.flip), self.rect.y, 2 * self.rect.width, self.rect.height)
-        #COLLISION
-        if attack_rect.colliderect(target.rect):
-            target.health -= 10
-        #pygame.draw.rect(screen, (255, 255, 100), attack_rect)
+        if self.attackCooldown == 0:
+            self.attacking = True
+            attack_rect = pygame.Rect(self.rect.centerx - (2 * self.rect.width * self.flip), self.rect.y, 2 * self.rect.width, self.rect.height)
+            #COLLISION
+            if attack_rect.colliderect(target.rect):
+                target.hit = True
+                target.health -= 10
+            #pygame.draw.rect(screen, (255, 255, 100), attack_rect)
 
     def actionUpdate(self, new_Action):
         #check if the new action is different to the previous one

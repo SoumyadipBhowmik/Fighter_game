@@ -53,10 +53,10 @@ while run:
     #DISPLAY Fighters
     player1.update()
     player1.draw(screen)
-    player1.move(SCREEN_WIDTH, SCREEN_HEIGHT, pygame.K_a, pygame.K_d, pygame.K_w, screen, player2)
+    player1.move(SCREEN_WIDTH, SCREEN_HEIGHT, pygame.K_a, pygame.K_d, pygame.K_w, pygame.K_j, pygame.K_k, screen, player2)
     player2.update()
     player2.draw(screen)
-    player2.move(SCREEN_WIDTH, SCREEN_HEIGHT, pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, screen, player1)
+    player2.move(SCREEN_WIDTH, SCREEN_HEIGHT, pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_n, pygame.K_m, screen, player1)
 
     qkey = pygame.key.get_pressed()
     for event in pygame.event.get():

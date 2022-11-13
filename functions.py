@@ -1,8 +1,10 @@
 import pygame
-
+#COLORS
 YELLOW = (255,255,0)
 RED = (255, 0, 0)
 WHITE = (255,255,255)
+
+def text(text, font, textColor, x, y)
 
 #HEALTHBAR
 def draw_health_bar(health, screen, x, y):
@@ -15,3 +17,4 @@ def draw_health_bar(health, screen, x, y):
 def draw_background(screen, background, screen_width, screen_height):
     bg_scaled = pygame.transform.scale(background, (screen_width, screen_height))
     screen.blit(bg_scaled, (0,0))
+

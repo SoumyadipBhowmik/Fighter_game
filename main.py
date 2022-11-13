@@ -16,6 +16,8 @@ WIZARD_SCALE = 3
 WIZARD_OFFSET = [112, 117]
 WIZARD_DATA = [WIZARD_SIZE, WIZARD_SCALE, WIZARD_OFFSET]
 
+intro_count = 3
+countUpdate = pygame.time.get_ticks()
 FPS = 60
 
 #INITIATION
@@ -31,13 +33,17 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 clock = pygame.time.Clock()
 run = True
 
+#load font
+count_font = pygame.font.Font("graphics/Font/turok.ttf", 80)
+score_font = pygame.font.Font("graphics/Font/turok.ttf", 30)
+
 #load spritesheets
 warrior_sheet = pygame.image.load("graphics\warrior_sprites\warrior.png").convert_alpha()
 wizard_sheet = pygame.image.load("graphics\wizard_sprites\wizard.png").convert_alpha()
 
 #FIGHTERS
-player1 = Fighter(200, 420, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_LIST)
-player2 = Fighter(700, 420, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_LIST)
+player1 = Fighter(1, 200, 420, False, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_LIST)
+player2 = Fighter(2, 700, 420, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_LIST)
 
 
 background = pygame.image.load("graphics/bg.jpg").convert_alpha()
@@ -50,13 +56,21 @@ while run:
     #DRAW HEALTH BARS
     draw_health_bar(player1.health, screen, 20, 40)
     draw_health_bar(player2.health, screen, 580, 40)
+    if intro_count <= 0:
+        player1.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, player2)
+        player2.move(SCREEN_WIDTH, SCREEN_HEIGHT, screen, player1)
+    else:
+        if (pygame.time.get_ticks() - countUpdate) >= 1000:
+            intro_count -= 1
+            countUpdate = pygame.time.get_ticks()
+            print(intro_count+1)
+
     #DISPLAY Fighters
     player1.update()
-    player1.draw(screen)
-    player1.move(SCREEN_WIDTH, SCREEN_HEIGHT, pygame.K_a, pygame.K_d, pygame.K_w, pygame.K_j, pygame.K_k, screen, player2)
     player2.update()
+
+    player1.draw(screen)
     player2.draw(screen)
-    player2.move(SCREEN_WIDTH, SCREEN_HEIGHT, pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_n, pygame.K_m, screen, player1)
 
     qkey = pygame.key.get_pressed()
     for event in pygame.event.get():

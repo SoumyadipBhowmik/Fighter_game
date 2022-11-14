@@ -4,7 +4,9 @@ YELLOW = (255,255,0)
 RED = (255, 0, 0)
 WHITE = (255,255,255)
 
-def text(text, font, textColor, x, y)
+def text(screen, text, font, color, x, y):
+    img = font.render(text, True, color)
+    screen.blit(img,(x,y))
 
 #HEALTHBAR
 def draw_health_bar(health, screen, x, y):

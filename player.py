@@ -35,7 +35,7 @@ class Fighter:
             animationList.append(tempImgLIST)
         return animationList
 
-    def move(self, screen_width, screen_height, screen, target):
+    def move(self, screen_width, screen_height, screen, target, round_over):
         #VARIABLES FOR MOVEMENT
         SPEED = 8
         GRAVITY = 2
@@ -49,7 +49,7 @@ class Fighter:
         key = pygame.key.get_pressed()
 
         #KEY BINDINGS
-        if self.attacking == False and self.alive == True:
+        if self.attacking == False and self.alive == True and round_over == False:
 
             #PLAYER1 Controls
             if self.player == 1:

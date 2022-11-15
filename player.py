@@ -1,7 +1,7 @@
 import pygame
 
 class Fighter:
-    def __init__(self, player, x, y, flip, data, spritesheets, animation_steps, attackSound1, attackSound2, extraAttackSound, extraAttackSound2):
+    def __init__(self, player, x, y, flip, data, spritesheets, animation_steps, attackSound1, attackSound2, extraAttackSound, extraAttackSound2, jumpSound):
         self.player = player
         self.size = data[0]
         self.imageSCALED = data[1]
@@ -16,6 +16,7 @@ class Fighter:
         self.velocity_y = 0
         self.running = False
         self.jump = False
+        self.jumpSound = jumpSound
         self.attacking = False
         self.attack_type = 0
         self.attackCooldown = 0
@@ -68,6 +69,7 @@ class Fighter:
 
                 #jump
                 if key[pygame.K_w] and self.jump == False:
+                    self.jumpSound.play()
                     self.jump = True
                     self.velocity_y = -30
 
@@ -91,6 +93,7 @@ class Fighter:
 
                 #jump
                 if key[pygame.K_UP] and self.jump == False:
+                    self.jumpSound.play()
                     self.jump = True
                     self.velocity_y = -30
 
@@ -158,7 +161,7 @@ class Fighter:
         if self.action == 3 or self.action == 4:
             animation_cooldown = 70
         else:
-            animation_cooldown = 80
+            animation_cooldown = 130
 
         #check if the animation has finished
         self.image = self.animationList[self.action][self.frameINDEX]

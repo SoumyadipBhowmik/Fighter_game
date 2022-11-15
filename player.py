@@ -1,7 +1,7 @@
 import pygame
 
 class Fighter:
-    def __init__(self, player, x, y, flip, data, spritesheets, animation_steps):
+    def __init__(self, player, x, y, flip, data, spritesheets, animation_steps, attackSound1, attackSound2, extraAttackSound, extraAttackSound2):
         self.player = player
         self.size = data[0]
         self.imageSCALED = data[1]
@@ -19,6 +19,11 @@ class Fighter:
         self.attacking = False
         self.attack_type = 0
         self.attackCooldown = 0
+        self.attackfx1 = attackSound1
+        self.attackfx2 = attackSound2
+        self.extraAttackSound = extraAttackSound
+        self.extraAttackSound2 = extraAttackSound2
+
         self.hit = False
         self.health = 100
         self.alive = True
@@ -68,7 +73,7 @@ class Fighter:
 
                 #fighter attacks
                 if key[pygame.K_j] or key[pygame.K_k]:
-                    self.attack(screen, target)
+                    self.attack(target)
                     if key[pygame.K_j]:
                         self.attack_type = 1
                     if key[pygame.K_k]:
@@ -91,7 +96,7 @@ class Fighter:
 
                 #fighter attacks
                 if key[pygame.K_KP1] or key[pygame.K_KP2]:
-                    self.attack(screen, target)
+                    self.attack(target)
                     if key[pygame.K_KP1]:
                         self.attack_type = 1
                     if key[pygame.K_KP2]:
@@ -136,8 +141,12 @@ class Fighter:
             self.actionUpdate(5) #hit
         elif self.attacking == True:
             if self.attack_type == 1:
+                self.attackfx1.play()
+                self.extraAttackSound.play()
                 self.actionUpdate(3) #attack type 1
             elif self.attack_type == 2:
+                self.attackfx2.play()
+                self.extraAttackSound2.play()
                 self.actionUpdate(4) #attck type 2
         elif self.jump == True:
             self.actionUpdate(2) #jump
@@ -174,7 +183,7 @@ class Fighter:
                     self.attacking = False
                     self.attackCooldown = 20
 
-    def attack(self, screen, target):
+    def attack(self, target):
         if self.attackCooldown == 0:
             self.attacking = True
             attack_rect = pygame.Rect(self.rect.centerx - (2 * self.rect.width * self.flip), self.rect.y, 2 * self.rect.width, self.rect.height)
@@ -182,7 +191,6 @@ class Fighter:
             if attack_rect.colliderect(target.rect):
                 target.hit = True
                 target.health -= 10
-            #pygame.draw.rect(screen, (255, 255, 100), attack_rect)
 
     def actionUpdate(self, new_Action):
         #check if the new action is different to the previous one

@@ -31,11 +31,8 @@ score_font = pygame.font.Font("graphics/Font/turok.ttf", 30)
 victoryImg = pygame.image.load("graphics/Font/victory.png").convert_alpha()
 
 #FIGHTERS
-Human = Fighter(1, 200, 420, False, FIGHTER_DATA, fighter_sheet, FIGHTER_ANIMATION_LIST, human_sword, sword_fx2, human_sword, sword_fx2, jump1)
-Masked_Samurai = Fighter(2, 720, 420, True, MASKED_SAMURAI_DATA, masked_samurai_sheet, MASKED_SAMURAI_ANIMATION_LIST, unsheathSound, sword_fx2, unsheathSound, sword_fx2, jump2)
-#FIGHTER INITIALIZATON
-player1 = Human
-player2 = Masked_Samurai
+player1 = Fighter(1, 200, 420, False, FIGHTER_DATA, fighter_sheet, FIGHTER_ANIMATION_LIST, human_sword, sword_fx2, human_sword, sword_fx2, jump1)
+player2 = Fighter(2, 720, 420, True, MASKED_SAMURAI_DATA, masked_samurai_sheet, MASKED_SAMURAI_ANIMATION_LIST, unsheathSound, sword_fx2, unsheathSound, sword_fx2, jump2)
 
 background = pygame.image.load("graphics/bg.jpg").convert_alpha()
 backcount.play()
@@ -91,8 +88,8 @@ while run:
             roundOver = False
             intro_count = 4
             backcount.play()
-            player1 = Human
-            player2 = Masked_Samurai
+            player1 = Fighter(1, 200, 420, False, FIGHTER_DATA, fighter_sheet, FIGHTER_ANIMATION_LIST, human_sword, sword_fx2, human_sword, sword_fx2, jump1)
+            player2 = Fighter(2, 720, 420, True, MASKED_SAMURAI_DATA, masked_samurai_sheet, MASKED_SAMURAI_ANIMATION_LIST, unsheathSound, sword_fx2, unsheathSound, sword_fx2, jump2)
 
     pygame.display.update()
     clock.tick(FPS)

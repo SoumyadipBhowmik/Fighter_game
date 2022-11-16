@@ -12,7 +12,7 @@ class Fighter:
         self.frameINDEX = 0
         self.image = self.animationList[self.action][self.frameINDEX]
         self.animation_timer = pygame.time.get_ticks()
-        self.rect = pygame.Rect((x, y, 80, 150)) #x and y are used to place the characters in ground
+        self.rect = pygame.Rect((x, y, 85, 150)) #x and y are used to place the characters in ground
         self.velocity_y = 0
         self.running = False
         self.jump = False
@@ -110,10 +110,10 @@ class Fighter:
         dy += self.velocity_y
 
         #ENSURING THE CHARACTER STAYS ON SCREEN
-        if self.rect.left + dx < 0:
-            dx = -self.rect.left
-        if self.rect.right + dx > screen_width:
-            dx = screen_width - self.rect.right
+        if self.rect.left + dx < 220:
+            dx = -self.rect.left + 220
+        if self.rect.right + dx > screen_width-130:
+            dx = screen_width - self.rect.right-130
         if self.rect.bottom + dy > FLOOR:
             velocity_y = 0
             dy = FLOOR - self.rect.bottom

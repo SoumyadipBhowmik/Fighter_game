@@ -4,6 +4,7 @@ from player import Fighter
 from functions import *
 from characters import *
 from sounds import *
+from menu import *
 
 intro_count = 3
 countUpdate = pygame.time.get_ticks()

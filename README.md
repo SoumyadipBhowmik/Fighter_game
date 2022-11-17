@@ -9,26 +9,24 @@ A short game project on duel made from scratch using the pygame module.
 <td><img src= "Readme Stuff\Game Overlook3.png" height = "320"></td>
 </table>
 
-> Here's a video on the game
+<img src = "Readme Stuff\game_preview.gif" align = "right">
 
-<img src = "Readme Stuff\game_preview.gif">
-
-# GAME FEATURES
+### GAME FEATURES
 
 > I could've implemented more features into this game but I'm only a beginner and learning
 
 <ul>
 <li>5 in-game characters</li>
-<li>2 players can play on the same screen</li>
-<li>Individual sounds for individual characters</li>
-<li>Background Sound and Countdown during start</li>
-<li>Added an immovable but parallex background for an eye pleasing effect</li>
-<li>Has a main menu but it's not that great. Neither does it have multiple features</li>
+<li>2 players can play on the same screen.</li>
+<li>Individual sounds for individual characters.</li>
+<li>Background Sound and Countdown during start.</li>
+<li>Immovable but parallex background.</li>
+<li>Has a main menu but it's not that great.</li>
 </ul>
 
-# GETTING STARTED WITH THE GAME
+### GETTING STARTED WITH THE GAME
 
-> I could've made this into an .EXE file but lot of things won't work.
+> Could've converted to an .EXE file but lot of things won't work.
 
 <ol>
 <li>Fork this repository</li>
@@ -39,7 +37,7 @@ A short game project on duel made from scratch using the pygame module.
 <li>If you like this game, Star this repository so I can get more motivation to create what I've started</li>
 </ol>
 
-# PLAYING THE GAME
+### PLAYING THE GAME
 <details><summary>👈Click for Player 1 controls</summary>
 A and D: Moves left and right
 
@@ -60,7 +58,7 @@ NUMPAD 1: Attack 1
 NUMPAD 2: Attack 2
 </details>
 
-# CHARACTERS
+### CHARACTERS
 #### Here's how you can use different characters in game
 
 ```
@@ -94,12 +92,12 @@ Fighter(2, 720, 420, True, WIZARD_DATA, wizard_sheet, WIZARD_ANIMATION_LIST, swo
 ```
 </details>
 
-# CREDIT WHERE ITS DUE
+### CREDIT WHERE ITS DUE
 Game is inspired from <a href = "https://www.youtube.com/channel/UCPrRY0S-VzekrJK7I7F4-Mg">Code With Russ</a>---> @russs123
 
 Incredible sprites created by <a href = "https://luizmelo.itch.io/">Luiz Melo </a>
 
 Background has been taken from <a href = "https://twitter.com/twistedsifter">TwistedSifter</a>
 
-# CONTRIBUTING
+### CONTRIBUTING
 Any meaningful contributions are warmly welcomed.

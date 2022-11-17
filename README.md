@@ -6,7 +6,7 @@
 
 <h2>Game Features<h2>
 <ul>
-<h4><li>There are 5 characters in the game</li><h4>
+<h5><li>There are 5 characters in the game</li><h5>
 
  > Human guy, Human Warrior, Tribal Warrior, Masked Warrior, Wizard
 

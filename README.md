@@ -10,7 +10,8 @@ A short game project on duel made from scratch using the pygame module.
 </table>
 
 > Here's a video on the game
-<video src = "Readme Stuff\gameVideo.mp4" height = "320">
+
+<video align = "center" height = "320" controls autoplay><source src = "Readme Stuff\gameVideo.mp4"></video>
 
 # GAME FEATURES
 
@@ -40,24 +41,24 @@ A short game project on duel made from scratch using the pygame module.
 
 # PLAYING THE GAME
 <details><summary>👈Click for Player 1 controls</summary>
-
 A and D: Moves left and right
 
-W: jump
+W: Jump
 
 J: Attack 1
 
 K: Attack 2
 </details>
 <details><summary>👈Click for Player 2 controls</summary>
+
 Left Arrow and Right Arrow Key: Moves left and right
 
-UP Arrow Key: jump
+UP Arrow Key: Jump
 
 NUMPAD 1: Attack 1
 
 NUMPAD 2: Attack 2
-<details>
+</details>
 
 # CHARACTERS
 #### Here's how you can use different characters in game
@@ -77,15 +78,15 @@ Fighter(1, 225, 425, False, FIGHTER_DATA, fighter_sheet, FIGHTER_ANIMATION_LIST,
 ```
 Fighter(2, 720, 420, True, MASKED_SAMURAI_DATA, masked_samurai_sheet, MASKED_SAMURAI_ANIMATION_LIST, unsheathSound, sword_fx2, unsheathSound, sword_fx2, jump2)
 ```
-## TRIBAL WARRIOR
+#### TRIBAL WARRIOR
 ```
 Fighter(1, 220, 420, False, JUNGLE_WARRIOR_DATA, jungle_warrior_sheet, JUNGLE_WARRIOR_ANIMATION_LIST, human_sword, sword_fx2, human_sword, sword_fx2, jump1)
 ```
-## ASSASSIN WARRIOR
+#### ASSASSIN WARRIOR
 ```
 Fighter(2, 720, 420, True, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_LIST, sword_fx1, sword_fx2, lightning_fx, lightning_fx2, jump2)
 ```
-## WIZARD
+#### WIZARD
 
 > I didn't add any sound effects for wizard since I am not a fan of magic and fantasy but its easy to add
 ```
@@ -101,4 +102,4 @@ Incredible sprites created by <a href = "https://luizmelo.itch.io/">Luiz Melo </
 Background has been taken from <a href = "https://twitter.com/twistedsifter">TwistedSifter</a>
 
 # CONTRIBUTING
-Any meaningful contributions are warmly welcomed
+Any meaningful contributions are warmly welcomed.

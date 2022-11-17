@@ -6,6 +6,7 @@ from characters import *
 from sounds import *
 from menu import *
 
+
 intro_count = 3
 countUpdate = pygame.time.get_ticks()
 
@@ -42,9 +43,9 @@ backcount.play()
 #MAIN MENU
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
-start_button = Button(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, start, 0.5)
-credits_button = Button(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 1.45, game_credits, 0.5)
-end_button = Button(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 1.15, end, 0.5)
+start_button = Button(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, start, 0.2)
+credits_button = Button(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 1.45, game_credits, 0.2)
+end_button = Button(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 1.15, end, 0.2)
 
 while run:
     #DISPLAY Background
@@ -102,8 +103,8 @@ while run:
                 roundOver = False
                 intro_count = 4
                 backcount.play()
-                player1 = Fighter(1, 220, 420, False, FIGHTER_DATA, fighter_sheet, FIGHTER_ANIMATION_LIST, human_sword, sword_fx2, human_sword, sword_fx2, jump1)
-                player2 = Fighter(2, 720, 420, True, MASKED_SAMURAI_DATA, masked_samurai_sheet, MASKED_SAMURAI_ANIMATION_LIST, unsheathSound, sword_fx2, unsheathSound, sword_fx2, jump2)
+                player1 = Fighter(1, 220, 420, False, JUNGLE_WARRIOR_DATA, jungle_warrior_sheet, JUNGLE_WARRIOR_ANIMATION_LIST, human_sword, sword_fx2, human_sword, sword_fx2, jump1)
+                player2 = Fighter(2, 720, 420, True, WARRIOR_DATA, warrior_sheet, WARRIOR_ANIMATION_LIST, sword_fx1, sword_fx2, lightning_fx, lightning_fx2, jump2)
             if end_button.draw(screen):
                 run = False
             if credits_button.draw(screen):

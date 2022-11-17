@@ -9,6 +9,7 @@ backcount = pygame.mixer.Sound("sounds/321.wav")
 #BACKGROUND SOUNDS
 background_music = pygame.mixer.music.load("sounds/bg_music.mp3")
 pygame.mixer.music.play(-1, 0.0, 5000)
+pygame.mixer.music.set_volume(0.6)
 
 #CHARACTER SOUNDS
 #JUMP SOUNDS

@@ -11,7 +11,7 @@ A short game project on duel made from scratch using the pygame module.
 
 > Here's a video on the game
 
-<video align = "center" height = "320" controls autoplay><source src = "Readme Stuff\gameVideo.mp4"></video>
+<img src = "Readme Stuff\game_preview.gif">
 
 # GAME FEATURES
 

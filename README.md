@@ -5,7 +5,7 @@
 <img src= "Readme Stuff\Game Overlook1.png" height = "320">
 
 <h2>Game Features<h2>
-<h5>There are 5 characters in the game<h5>
+<h4>There are 5 characters in the game<h4>
 > I don't have names for them
 <br>
  Human guy, Human Warrior, Tribal Warrior, Masked Warrior, Wizard
